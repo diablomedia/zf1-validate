@@ -1,0 +1,51 @@
+language: php
+
+sudo: false
+
+php:
+  - 7
+  - 7.1
+  - 7.2
+  - nightly
+
+env: TMPDIR=/tmp USE_XDEBUG=false
+
+branches:
+  only:
+    master
+
+before_install:
+  - travis_retry composer self-update
+
+install:
+  - phpenv rehash
+  - travis_retry composer install --no-interaction --prefer-source
+
+stages:
+  - test
+  - phpstan analysis
+  - test with coverage
+
+before_script:
+  - if [[ "$USE_XDEBUG" == false ]]; then phpenv config-rm xdebug.ini || return 0; fi
+
+script:
+  - composer test
+
+jobs:
+  fast_finish: true
+  allow_failures:
+    - php: nightly
+  include:
+    - stage: phpstan analysis
+      php: 7.1
+      env: TMPDIR=/tmp USE_XDEBUG=false
+      script:
+        - composer phpstan
+    - stage: test with coverage
+      php: 7.1
+      env: TMPDIR=/tmp USE_XDEBUG=true
+      script:
+        - composer test-with-coverage
+      after_success:
+        - bash <(curl -s https://codecov.io/bash) -f ./clover.xml
