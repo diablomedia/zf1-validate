@@ -20,10 +20,6 @@
  * @version    $Id $
  */
 
-/**
- * @see Zend_Db_Adapter_Abstract
- */
-require_once 'Zend/Db/Adapter/Abstract.php';
 
 /**
  * Mock Db adapter for Zend_Validate_Db tests
@@ -37,12 +33,12 @@ require_once 'Zend/Db/Adapter/Abstract.php';
 class Db_MockHasResult extends Zend_Db_Adapter_Abstract
 {
     protected $_supportsParametersValues = array('named' => true, 'positional' => true);
-    
+
     public function setSupportsParametersValues(array $supportsParametersValues)
     {
         $this->_supportsParametersValues = $supportsParametersValues;
     }
-    
+
     /**
      * Returns an array to emulate a result
      *

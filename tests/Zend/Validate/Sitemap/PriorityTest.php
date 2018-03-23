@@ -20,7 +20,6 @@
  * @version    $Id$
  */
 
-require_once 'Zend/Validate/Sitemap/Priority.php';
 
 /**
  * Tests Zend_Validate_Sitemap_Priority

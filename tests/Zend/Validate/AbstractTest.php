@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Validate_Abstract */
-require_once 'Zend/Validate/Abstract.php';
-
-/** Zend_Translate */
-require_once 'Zend/Translate.php';
 
 /**
  * @category   Zend
@@ -241,7 +236,6 @@ class Zend_Validate_AbstractTest extends PHPUnit\Framework\TestCase
 
     public function testMaximumErrorMessageLength()
     {
-        require_once 'Zend/Validate.php';
         $this->assertEquals(-1, Zend_Validate::getMessageLength());
         Zend_Validate_Abstract::setMessageLength(10);
         $this->assertEquals(10, Zend_Validate::getMessageLength());

@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_InArray
- */
-require_once 'Zend/Validate/InArray.php';
-
 
 /**
  * @category   Zend

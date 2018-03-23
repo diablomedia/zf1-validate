@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_File_Size
- */
-require_once 'Zend/Validate/File/Exists.php';
 
 /**
  * Exists testbed

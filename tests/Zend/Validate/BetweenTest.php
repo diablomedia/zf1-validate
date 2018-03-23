@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_Between
- */
-require_once 'Zend/Validate/Between.php';
-
 
 /**
  * @category   Zend

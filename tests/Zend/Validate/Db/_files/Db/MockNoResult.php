@@ -20,10 +20,6 @@
  * @version    $Id $
  */
 
-/**
- * @see Zend_Db_Adapter_Abstract
- */
-require_once 'Zend/Db/Adapter/Abstract.php';
 
 /**
  * Mock Db adapter for Zend_Validate_Db tests

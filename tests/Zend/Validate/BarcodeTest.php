@@ -20,8 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Validate_Barcode */
-require_once 'Zend/Validate/Barcode.php';
 
 /**
  * Zend_Validate_Barcode

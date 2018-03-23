@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_Regex
- */
-require_once 'Zend/Validate/Regex.php';
-
 
 /**
  * @category   Zend

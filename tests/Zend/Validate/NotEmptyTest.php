@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_NotEmpty
- */
-require_once 'Zend/Validate/NotEmpty.php';
-
 
 /**
  * @category   Zend

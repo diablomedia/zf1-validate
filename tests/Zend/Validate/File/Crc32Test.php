@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_File_Crc32
- */
-require_once 'Zend/Validate/File/Crc32.php';
 
 /**
  * Crc32 testbed

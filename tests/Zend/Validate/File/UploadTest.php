@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_File_Upload
- */
-require_once 'Zend/Validate/File/Upload.php';
 
 /**
  * @category   Zend

@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_File_FilesSize
- */
-require_once 'Zend/Validate/File/FilesSize.php';
 
 /**
  * @category   Zend
@@ -169,6 +165,9 @@ class Zend_Validate_File_FilesSizeTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('976.56kB', $validator->getMax());
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testConstructorShouldRaiseErrorWhenPassedMultipleOptions()
     {
         $handler = set_error_handler(array($this, 'errorHandler'), E_USER_NOTICE);

@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_Alnum
- */
-require_once 'Zend/Validate/Alnum.php';
-
 
 /**
  * @category   Zend

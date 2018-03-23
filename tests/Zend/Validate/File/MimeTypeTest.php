@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_File_MimeType
- */
-require_once 'Zend/Validate/File/MimeType.php';
 
 /**
  * MimeType testbed
@@ -160,13 +156,8 @@ class Zend_Validate_File_MimeTypeTest extends PHPUnit\Framework\TestCase
 
     public function testSetMagicFileWithinConstructor()
     {
-        require_once 'Zend/Validate/Exception.php';
-        try {
-            $validator = new Zend_Validate_File_MimeType(array('image/gif', 'magicfile' => __FILE__));
-            $this->fail('Zend_Validate_File_MimeType should not accept invalid magic file.');
-        } catch (Zend_Validate_Exception $e) {
-            // @ZF-9320: False Magic File is not allowed to be set
-        }
+        $this->expectException(Zend_Validate_Exception::class);
+        $validator = new Zend_Validate_File_MimeType(array('image/gif', 'magicfile' => __FILE__));
     }
 
     public function testOptionsAtConstructor()

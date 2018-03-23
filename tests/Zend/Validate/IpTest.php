@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_Ip
- */
-require_once 'Zend/Validate/Ip.php';
 
 /**
  * @category   Zend

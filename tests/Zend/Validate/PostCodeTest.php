@@ -20,10 +20,6 @@
  * @version    $Id: PostCodeTest.php 17798 2009-08-24 20:07:53Z thomas $
  */
 
-/**
- * @see Zend_Validate_PostCode
- */
-require_once 'Zend/Validate/PostCode.php';
 
 /**
  * @category   Zend

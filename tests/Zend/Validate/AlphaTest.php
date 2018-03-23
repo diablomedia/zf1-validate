@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_Alpha
- */
-require_once 'Zend/Validate/Alpha.php';
-
 
 /**
  * @category   Zend

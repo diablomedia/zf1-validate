@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_Ccnum
- */
-require_once 'Zend/Validate/Ccnum.php';
-
 
 /**
  * @category   Zend

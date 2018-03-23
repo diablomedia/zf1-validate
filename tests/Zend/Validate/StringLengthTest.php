@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_StringLength
- */
-require_once 'Zend/Validate/StringLength.php';
 
 /**
  * @category   Zend

@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_File_IsImage
- */
-require_once 'Zend/Validate/File/IsImage.php';
 
 /**
  * IsImage testbed

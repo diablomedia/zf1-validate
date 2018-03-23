@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_Float
- */
-require_once 'Zend/Validate/Float.php';
 
 /**
  * @category   Zend

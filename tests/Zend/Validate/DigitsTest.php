@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_Digits
- */
-require_once 'Zend/Validate/Digits.php';
-
 
 /**
  * @category   Zend

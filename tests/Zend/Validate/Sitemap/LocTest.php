@@ -20,7 +20,6 @@
  * @version    $Id$
  */
 
-require_once 'Zend/Validate/Sitemap/Loc.php';
 
 /**
  * Tests Zend_Validate_Sitemap_Loc
@@ -74,7 +73,11 @@ class Zend_Validate_Sitemap_LocTest extends PHPUnit\Framework\TestCase
         );
 
         foreach ($values as $value) {
-            $this->assertSame(true, $this->_validator->isValid($value));
+            $this->assertSame(
+                true,
+                $this->_validator->isValid($value),
+                implode(', ', $this->_validator->getMessages())
+            );
         }
     }
 

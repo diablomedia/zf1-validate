@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_Int
- */
-require_once 'Zend/Validate/Int.php';
-
 
 /**
  * @category   Zend

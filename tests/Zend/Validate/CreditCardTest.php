@@ -20,10 +20,6 @@
  * @version    $Id:$
  */
 
-/**
- * @see Zend_Validate_CreditCard
- */
-require_once 'Zend/Validate/CreditCard.php';
 
 /**
  * @category   Zend

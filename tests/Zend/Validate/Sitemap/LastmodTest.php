@@ -20,7 +20,6 @@
  * @version    $Id$
  */
 
-require_once 'Zend/Validate/Sitemap/Lastmod.php';
 
 /**
  * Tests Zym_Validate_Sitemap_Lastmod

@@ -20,32 +20,6 @@
  * @version    $Id$
  */
 
-
-/**
- * PHPUnit\Framework\TestCase
- */
-
-
-/**
- * @see Zend_Db_Adapter_Pdo_Sqlite
- */
-require_once 'Zend/Db/Adapter/Pdo/Sqlite.php';
-
-/**
- * @see Zend_Db_Table_Abstract
- */
-require_once 'Zend/Db/Table/Abstract.php';
-
-/**
- * @see Zend_Validate_Db_Abstract.php
- */
-require_once 'Zend/Validate/Db/Abstract.php';
-
-/**
- * @see Zend_Validate_Db_RecordExists.php
- */
-require_once 'Zend/Validate/Db/RecordExists.php';
-
 /**
  * Mock No Result Adapter
  */
@@ -172,13 +146,10 @@ class Zend_Validate_Db_RecordExistsTest extends PHPUnit\Framework\TestCase
      */
     public function testThrowsExceptionWithNoAdapter()
     {
+        $this->expectException(Zend_Validate_Exception::class);
         Zend_Db_Table_Abstract::setDefaultAdapter(null);
-        try {
-            $validator = new Zend_Validate_Db_RecordExists('users', 'field1', 'id != 1');
-            $valid = $validator->isValid('nosuchvalue');
-            $this->markTestFailed('Did not throw exception');
-        } catch (Exception $e) {
-        }
+        $validator = new Zend_Validate_Db_RecordExists('users', 'field1', 'id != 1');
+        $valid = $validator->isValid('nosuchvalue');
     }
 
     /**

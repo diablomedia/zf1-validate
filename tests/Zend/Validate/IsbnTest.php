@@ -19,11 +19,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_Isbn
- */
-require_once 'Zend/Validate/Isbn.php';
-
 
 /**
  * @category   Zend

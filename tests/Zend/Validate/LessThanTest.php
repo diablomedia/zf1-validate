@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Validate_LessThan
- */
-require_once 'Zend/Validate/LessThan.php';
-
 
 /**
  * @category   Zend
