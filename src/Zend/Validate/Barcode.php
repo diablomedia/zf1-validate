@@ -51,14 +51,14 @@ class Zend_Validate_Barcode extends Zend_Validate_Abstract
     /**
      * Length for the set subtype
      *
-     * @var integer|string
+     * @var integer|string|array
      */
     protected $_length;
 
     /**
      * Barcode adapter
      *
-     * @var Zend_Validate_Barcode_AdapterInterface
+     * @var Zend_Validate_Barcode_AdapterAbstract
      */
     protected $_adapter;
 
@@ -101,7 +101,7 @@ class Zend_Validate_Barcode extends Zend_Validate_Abstract
     /**
      * Returns the set adapter
      *
-     * @return Zend_Validate_Barcode_AdapterInterface
+     * @return Zend_Validate_Barcode_AdapterAbstract
      */
     public function getAdapter()
     {
@@ -151,7 +151,7 @@ class Zend_Validate_Barcode extends Zend_Validate_Abstract
      * Sets the checksum option
      *
      * @param  boolean $checksum
-     * @return Zend_Validate_Barcode
+     * @return $this
      */
     public function setChecksum($checksum)
     {
