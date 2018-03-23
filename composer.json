@@ -57,5 +57,12 @@
         "test": "phpunit ./tests",
         "test-with-coverage": "phpunit --coverage-clover=clover.xml ./tests",
         "phpstan": "phpstan analyze -l4 -c phpstan.neon --no-progress ./src --ansi"
+    },
+    "suggests": {
+        "ext-iconv": "Used in Hostname and StringLength validators",
+        "ext-hash": "Used in the File_Hash vaidator",
+        "ext-fileinfo": "Optionally used in the File_MimeType validator",
+        "ext-ctype": "Used in the CreditCard and Hex validators",
+        "ext-intl": "Optionally used in the EmailAddress validator"
     }
 }
