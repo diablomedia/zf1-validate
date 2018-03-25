@@ -16,14 +16,13 @@
         "diablomedia/zendframework1-config": "^1.0.0",
         "diablomedia/zendframework1-loader": "^1.0.0",
         "diablomedia/zendframework1-registry": "^1.0.0",
-        "diablomedia/zendframework1-date": "dev-master",
-        "diablomedia/zendframework1-db": "dev-master",
-        "diablomedia/zendframework1-file": "dev-master",
-        "diablomedia/zendframework1-filter": "dev-master",
-        "diablomedia/zendframework1-ldap": "dev-master",
-        "diablomedia/zendframework1-locale": "dev-master",
-        "diablomedia/zendframework1-translate": "dev-master",
-        "diablomedia/zendframework1-uri": "dev-master"
+        "diablomedia/zendframework1-date": "*",
+        "diablomedia/zendframework1-file": "*",
+        "diablomedia/zendframework1-filter": "*",
+        "diablomedia/zendframework1-ldap": "*",
+        "diablomedia/zendframework1-locale": "*",
+        "diablomedia/zendframework1-translate": "*",
+        "diablomedia/zendframework1-uri": "*"
     },
     "autoload": {
         "psr-0": {
@@ -63,6 +62,7 @@
         "ext-hash": "Used in the File_Hash vaidator",
         "ext-fileinfo": "Optionally used in the File_MimeType validator",
         "ext-ctype": "Used in the CreditCard and Hex validators",
-        "ext-intl": "Optionally used in the EmailAddress validator"
+        "ext-intl": "Optionally used in the EmailAddress validator",
+        "diablomedia/zendframework1-validate-db": "To use Zend_Db validations (RecordExists/NoRecordExists)"
     }
 }
