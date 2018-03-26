@@ -2,12 +2,7 @@ parameters:
     bootstrap: %rootDir%/../../../phpstan-bootstrap.php
     ignoreErrors:
         - '#Casting to .+ something that.s already .+\.#'
-        - '#Zend_Validate_File_Crc32::__construct\(\) does not call parent constructor from Zend_Validate_File_Hash\.#'
-        - '#Zend_Validate_File_Sha1::__construct\(\) does not call parent constructor from Zend_Validate_File_Hash\.#'
-        - '#Zend_Validate_File_Md5::__construct\(\) does not call parent constructor from Zend_Validate_File_Hash\.#'
         - '#Variable \$hostname might not be defined\.#'
         - '#Variable \$context in isset\(\) always exists and is not nullable\.#'
         - '#Call to an undefined method object::__toString\(\)\.#'
-        - '#Strict comparison using !== between .+ and null will always evaluate to true\.#'
         - '#Strict comparison using === between .+ and null will always evaluate to false\.#'
-        - '#Strict comparison using !== between null and .+ will always evaluate to true\.#'

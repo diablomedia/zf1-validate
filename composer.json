@@ -16,12 +16,10 @@
         "diablomedia/zendframework1-config": "^1.0.0",
         "diablomedia/zendframework1-loader": "^1.0.0",
         "diablomedia/zendframework1-registry": "^1.0.0",
-        "diablomedia/zendframework1-date": "*",
-        "diablomedia/zendframework1-file": "*",
-        "diablomedia/zendframework1-filter": "*",
-        "diablomedia/zendframework1-locale": "*",
-        "diablomedia/zendframework1-translate": "*",
-        "diablomedia/zendframework1-uri": "*"
+        "diablomedia/zendframework1-date": "^1.0.0",
+        "diablomedia/zendframework1-filter": "^1.0.0",
+        "diablomedia/zendframework1-locale": "^1.0.0",
+        "diablomedia/zendframework1-translate": "^1.0.0"
     },
     "autoload": {
         "psr-0": {
@@ -58,11 +56,11 @@
     },
     "suggests": {
         "ext-iconv": "Used in Hostname and StringLength validators",
-        "ext-hash": "Used in the File_Hash vaidator",
-        "ext-fileinfo": "Optionally used in the File_MimeType validator",
         "ext-ctype": "Used in the CreditCard and Hex validators",
         "ext-intl": "Optionally used in the EmailAddress validator",
         "diablomedia/zendframework1-validate-db": "To use Zend_Db validations (RecordExists/NoRecordExists)",
-        "diablomedia/zendframework1-validate-ldap": "To use Zend_Ldap validations"
+        "diablomedia/zendframework1-validate-ldap": "To use Zend_Ldap validations",
+        "diablomedia/zendframework1-validate-file": "To use Zend_File validations",
+        "diablomedia/zendframework1-validate-sitemap": "To use Zend_Sitemap validations"
     }
 }
