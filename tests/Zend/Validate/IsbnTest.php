@@ -124,7 +124,7 @@ class Zend_Validate_IsbnTest extends PHPUnit\Framework\TestCase
             $validator->setSeparator('');
             $this->assertTrue($validator->getSeparator() == '');
         } catch (Exception $e) {
-            $this->fail("Should accept empty separator");
+            $this->fail('Should accept empty separator');
         }
 
         try {

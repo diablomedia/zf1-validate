@@ -39,7 +39,7 @@ class Zend_Validate_Identical extends Zend_Validate_Abstract
      * @var array
      */
     protected $_messageTemplates = array(
-        self::NOT_SAME      => "The two given tokens do not match",
+        self::NOT_SAME      => 'The two given tokens do not match',
         self::MISSING_TOKEN => 'No token was provided to match against',
     );
 
@@ -75,7 +75,7 @@ class Zend_Validate_Identical extends Zend_Validate_Abstract
             }
 
             $this->setToken($token['token']);
-        } else if (null !== $token) {
+        } elseif (null !== $token) {
             $this->setToken($token);
         }
     }

@@ -36,7 +36,7 @@ class Zend_Validate_Barcode extends Zend_Validate_Abstract
         self::FAILED         => "'%value%' failed checksum validation",
         self::INVALID_CHARS  => "'%value%' contains invalid characters",
         self::INVALID_LENGTH => "'%value%' should have a length of %length% characters",
-        self::INVALID        => "Invalid type given. String expected",
+        self::INVALID        => 'Invalid type given. String expected',
     );
 
     /**
@@ -119,7 +119,7 @@ class Zend_Validate_Barcode extends Zend_Validate_Abstract
     public function setAdapter($adapter, $options = null)
     {
         $adapter = ucfirst(strtolower($adapter));
-        if (Zend_Loader::isReadable('Zend/Validate/Barcode/' . $adapter. '.php')) {
+        if (Zend_Loader::isReadable('Zend/Validate/Barcode/' . $adapter . '.php')) {
             $adapter = 'Zend_Validate_Barcode_' . $adapter;
         }
 
@@ -130,7 +130,7 @@ class Zend_Validate_Barcode extends Zend_Validate_Abstract
         $this->_adapter = new $adapter($options);
         if (!$this->_adapter instanceof Zend_Validate_Barcode_AdapterInterface) {
             throw new Zend_Validate_Exception(
-                "Adapter " . $adapter . " does not implement Zend_Validate_Barcode_AdapterInterface"
+                'Adapter ' . $adapter . ' does not implement Zend_Validate_Barcode_AdapterInterface'
             );
         }
 
@@ -180,10 +180,10 @@ class Zend_Validate_Barcode extends Zend_Validate_Abstract
         $result        = $adapter->checkLength($value);
         if (!$result) {
             if (is_array($this->_length)) {
-                $temp = $this->_length;
-                $this->_length = "";
-                foreach($temp as $length) {
-                    $this->_length .= "/";
+                $temp          = $this->_length;
+                $this->_length = '';
+                foreach ($temp as $length) {
+                    $this->_length .= '/';
                     $this->_length .= $length;
                 }
 

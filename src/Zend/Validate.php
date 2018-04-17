@@ -69,7 +69,7 @@ class Zend_Validate implements Zend_Validate_Interface
     public function addValidator(Zend_Validate_Interface $validator, $breakChainOnFailure = false)
     {
         $this->_validators[] = array(
-            'instance' => $validator,
+            'instance'            => $validator,
             'breakChainOnFailure' => (boolean) $breakChainOnFailure
             );
         return $this;
@@ -87,16 +87,16 @@ class Zend_Validate implements Zend_Validate_Interface
     {
         $this->_messages = array();
         $this->_errors   = array();
-        $result = true;
+        $result          = true;
         foreach ($this->_validators as $element) {
             $validator = $element['instance'];
             if ($validator->isValid($value)) {
                 continue;
             }
-            $result = false;
-            $messages = $validator->getMessages();
+            $result          = false;
+            $messages        = $validator->getMessages();
             $this->_messages = array_merge($this->_messages, $messages);
-            $this->_errors   = array_merge($this->_errors,   array_keys($messages));
+            $this->_errors   = array_merge($this->_errors, array_keys($messages));
             if ($element['breakChainOnFailure']) {
                 break;
             }
@@ -193,7 +193,7 @@ class Zend_Validate implements Zend_Validate_Interface
         $className  = ucfirst($classBaseName);
         try {
             if (!class_exists($className, false)) {
-                foreach($namespaces as $namespace) {
+                foreach ($namespaces as $namespace) {
                     $class = $namespace . '_' . $className;
                     $file  = str_replace('_', DIRECTORY_SEPARATOR, $class) . '.php';
                     if (Zend_Loader::isReadable($file)) {
@@ -209,7 +209,7 @@ class Zend_Validate implements Zend_Validate_Interface
                 if ($class->hasMethod('__construct')) {
                     $keys    = array_keys($args);
                     $numeric = false;
-                    foreach($keys as $key) {
+                    foreach ($keys as $key) {
                         if (is_numeric($key)) {
                             $numeric = true;
                             break;

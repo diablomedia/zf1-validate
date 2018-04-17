@@ -74,8 +74,11 @@ class Zend_Validate_NotEmptyTest extends PHPUnit\Framework\TestCase
             array(array(5), true),
         );
         foreach ($valuesExpected as $i => $element) {
-            $this->assertEquals($element[1], $this->_validator->isValid($element[0]),
-                "Failed test #$i");
+            $this->assertEquals(
+                $element[1],
+                $this->_validator->isValid($element[0]),
+                "Failed test #$i"
+            );
         }
     }
 
@@ -554,7 +557,7 @@ class Zend_Validate_NotEmptyTest extends PHPUnit\Framework\TestCase
      */
     public function testObjects()
     {
-        $valid = new Zend_Validate_NotEmpty(Zend_Validate_NotEmpty::STRING);
+        $valid  = new Zend_Validate_NotEmpty(Zend_Validate_NotEmpty::STRING);
         $object = new ClassTest1();
 
         $this->assertFalse($valid->isValid($object));
@@ -568,7 +571,7 @@ class Zend_Validate_NotEmptyTest extends PHPUnit\Framework\TestCase
      */
     public function testStringObjects()
     {
-        $valid = new Zend_Validate_NotEmpty(Zend_Validate_NotEmpty::STRING);
+        $valid  = new Zend_Validate_NotEmpty(Zend_Validate_NotEmpty::STRING);
         $object = new ClassTest2();
 
         $this->assertFalse($valid->isValid($object));
@@ -581,7 +584,9 @@ class Zend_Validate_NotEmptyTest extends PHPUnit\Framework\TestCase
     }
 }
 
-class ClassTest1 {}
+class ClassTest1
+{
+}
 
 class ClassTest2
 {

@@ -47,7 +47,7 @@ class Zend_Validate_CreditCardTest extends PHPUnit\Framework\TestCase
             array('ABCDEF',           false)
             );
         foreach ($valuesExpected as $test) {
-            $input = $test[0];
+            $input  = $test[0];
             $result = $test[1];
             $this->assertEquals($result, $validator->isValid($input), 'Test failed at ' . $input);
         }
@@ -120,7 +120,7 @@ class Zend_Validate_CreditCardTest extends PHPUnit\Framework\TestCase
             array('ABCDEF',           false)
             );
         foreach ($valuesExpected as $test) {
-            $input = $test[0];
+            $input  = $test[0];
             $result = $test[1];
             $this->assertEquals($result, $validator->isValid($input));
         }
@@ -168,7 +168,7 @@ class Zend_Validate_CreditCardTest extends PHPUnit\Framework\TestCase
     {
         $validator = new Zend_Validate_CreditCard(
             array(
-                'type' => Zend_Validate_CreditCard::VISA,
+                'type'    => Zend_Validate_CreditCard::VISA,
                 'service' => array('Zend_Validate_CreditCardTest', 'staticCallback')
             )
         );
@@ -197,7 +197,7 @@ class Zend_Validate_CreditCardTest extends PHPUnit\Framework\TestCase
         try {
             $validator->setService(array('Zend_Validate_CreditCardTest', 'nocallback'));
             $this->fail('Exception expected');
-        } catch(Zend_Exception $e) {
+        } catch (Zend_Exception $e) {
             $this->assertContains('Invalid callback given', $e->getMessage());
         }
     }
@@ -210,7 +210,7 @@ class Zend_Validate_CreditCardTest extends PHPUnit\Framework\TestCase
     public function testConfigObject()
     {
         $options = array('type' => 'Visa');
-        $config = new Zend_Config($options, false);
+        $config  = new Zend_Config($options, false);
 
         $validator = new Zend_Validate_CreditCard($config);
         $this->assertEquals(array('Visa'), $validator->getType());
@@ -245,8 +245,9 @@ class Zend_Validate_CreditCardTest extends PHPUnit\Framework\TestCase
     /**
      * @group ZF-9477
      */
-    public function testMultiInstitute() {
-        $validator      = new Zend_Validate_CreditCard(array('type' => Zend_Validate_CreditCard::MASTERCARD));
+    public function testMultiInstitute()
+    {
+        $validator = new Zend_Validate_CreditCard(array('type' => Zend_Validate_CreditCard::MASTERCARD));
         $this->assertFalse($validator->isValid('4111111111111111'));
         $message = $validator->getMessages();
         $this->assertContains('not from an allowed institute', current($message));

@@ -5,4 +5,3 @@ class MyBarcode5
     protected $_characters = 128;
     protected $_checksum   = '_mod10';
 }
-?>

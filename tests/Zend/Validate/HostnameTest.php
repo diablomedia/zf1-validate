@@ -164,7 +164,7 @@ class Zend_Validate_HostnameTest extends PHPUnit\Framework\TestCase
 
         // Check setting no IDN matching via constructor
         unset($validator);
-        $validator = new Zend_Validate_Hostname(Zend_Validate_Hostname::ALLOW_DNS, false);
+        $validator      = new Zend_Validate_Hostname(Zend_Validate_Hostname::ALLOW_DNS, false);
         $valuesExpected = array(
             array(false, array('bürger.de', 'hãllo.de', 'hållo.se'))
             );
@@ -208,7 +208,7 @@ class Zend_Validate_HostnameTest extends PHPUnit\Framework\TestCase
 
         // Check setting no IDN matching via constructor
         unset($validator);
-        $validator = new Zend_Validate_Hostname(Zend_Validate_Hostname::ALLOW_DNS, false);
+        $validator      = new Zend_Validate_Hostname(Zend_Validate_Hostname::ALLOW_DNS, false);
         $valuesExpected = array(
             array(false, array('bürger.com', 'hãllo.com', 'hållo.com'))
             );
@@ -251,7 +251,7 @@ class Zend_Validate_HostnameTest extends PHPUnit\Framework\TestCase
 
         // Check setting no TLD matching via constructor
         unset($validator);
-        $validator = new Zend_Validate_Hostname(Zend_Validate_Hostname::ALLOW_DNS, true, false);
+        $validator      = new Zend_Validate_Hostname(Zend_Validate_Hostname::ALLOW_DNS, true, false);
         $valuesExpected = array(
             array(true, array('domain.xx', 'domain.zz', 'domain.madeup'))
             );
@@ -288,7 +288,7 @@ class Zend_Validate_HostnameTest extends PHPUnit\Framework\TestCase
 
         $this->_validator->isValid('0.239,512.777');
         $messages = $this->_validator->getMessages();
-        $found = false;
+        $found    = false;
         foreach ($messages as $code => $message) {
             if (array_key_exists($code, $translations)) {
                 $found = true;

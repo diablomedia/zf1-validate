@@ -35,7 +35,7 @@ class Zend_Validate_StringLength extends Zend_Validate_Abstract
      * @var array
      */
     protected $_messageTemplates = array(
-        self::INVALID   => "Invalid type given. String expected",
+        self::INVALID   => 'Invalid type given. String expected',
         self::TOO_SHORT => "'%value%' is less than %min% characters long",
         self::TOO_LONG  => "'%value%' is more than %max% characters long",
     );
@@ -80,7 +80,7 @@ class Zend_Validate_StringLength extends Zend_Validate_Abstract
     {
         if ($options instanceof Zend_Config) {
             $options = $options->toArray();
-        } else if (!is_array($options)) {
+        } elseif (!is_array($options)) {
             $options     = func_get_args();
             $temp['min'] = array_shift($options);
             if (!empty($options)) {
@@ -156,8 +156,8 @@ class Zend_Validate_StringLength extends Zend_Validate_Abstract
     {
         if (null === $max) {
             $this->_max = null;
-        } else if ($max < $this->_min) {
-            throw new Zend_Validate_Exception("The maximum must be greater than or equal to the minimum length, but "
+        } elseif ($max < $this->_min) {
+            throw new Zend_Validate_Exception('The maximum must be greater than or equal to the minimum length, but '
                                             . "$max < $this->_min");
         } else {
             $this->_max = (integer) $max;

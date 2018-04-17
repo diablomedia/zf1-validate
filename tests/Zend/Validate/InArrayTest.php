@@ -164,9 +164,9 @@ class Zend_Validate_InArrayTest extends PHPUnit\Framework\TestCase
     {
         $validator = new Zend_Validate_InArray(
             array(
-                'haystack'  =>
+                'haystack' =>
                     array(
-                        'firstDimension' => array('test', 0, 'A'),
+                        'firstDimension'  => array('test', 0, 'A'),
                         'secondDimension' => array('value', 2, 'a')),
                 'recursive' => false
             )
@@ -181,7 +181,7 @@ class Zend_Validate_InArrayTest extends PHPUnit\Framework\TestCase
     {
         $validator = new Zend_Validate_InArray(
             array(
-                'firstDimension' => array('test', 0, 'A'),
+                'firstDimension'  => array('test', 0, 'A'),
                 'secondDimension' => array('value', 2, 'a')
             )
         );
@@ -215,7 +215,7 @@ class Zend_Validate_InArrayTest extends PHPUnit\Framework\TestCase
         );
         $validator = new Zend_Validate_InArray(array('a'));
         $validator->isValid($input);
-        $messages  = $validator->getMessages();
+        $messages = $validator->getMessages();
         $this->assertEquals(
             "'x, y' was not found in the haystack",
             current($messages)

@@ -38,7 +38,7 @@ class Zend_Validate_IbanTest extends PHPUnit\Framework\TestCase
      */
     public function testBasic()
     {
-        $validator = new Zend_Validate_Iban();
+        $validator      = new Zend_Validate_Iban();
         $valuesExpected = array(
             'AD1200012030200359100100' => true,
             'AT611904300234573201'     => true,
@@ -46,8 +46,11 @@ class Zend_Validate_IbanTest extends PHPUnit\Framework\TestCase
             'AD1200012030200354100100' => false,
         );
         foreach ($valuesExpected as $input => $result) {
-            $this->assertEquals($result, $validator->isValid($input),
-                                "'$input' expected to be " . ($result ? '' : 'in') . 'valid');
+            $this->assertEquals(
+                $result,
+                $validator->isValid($input),
+                                "'$input' expected to be " . ($result ? '' : 'in') . 'valid'
+            );
         }
     }
 

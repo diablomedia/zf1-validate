@@ -56,8 +56,11 @@ class Zend_Validate_BetweenTest extends PHPUnit\Framework\TestCase
         foreach ($valuesExpected as $element) {
             $validator = new Zend_Validate_Between(array('min' => $element[0], 'max' => $element[1], 'inclusive' => $element[2]));
             foreach ($element[4] as $input) {
-                $this->assertEquals($element[3], $validator->isValid($input),
-                'Failed values: ' . $input . ":" . implode("\n", $validator->getMessages()));
+                $this->assertEquals(
+                    $element[3],
+                    $validator->isValid($input),
+                'Failed values: ' . $input . ':' . implode("\n", $validator->getMessages())
+                );
             }
         }
     }

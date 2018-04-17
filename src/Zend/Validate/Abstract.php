@@ -137,7 +137,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
     {
         if ($messageKey === null) {
             $keys = array_keys($this->_messageTemplates);
-            foreach($keys as $key) {
+            foreach ($keys as $key) {
                 $this->setMessage($messageString, $key);
             }
             return $this;
@@ -274,7 +274,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
     protected function _error($messageKey, $value = null)
     {
         if ($messageKey === null) {
-            $keys = array_keys($this->_messageTemplates);
+            $keys       = array_keys($this->_messageTemplates);
             $messageKey = current($keys);
         }
         if ($value === null) {

@@ -61,7 +61,7 @@ class Zend_Validate_CreditCard extends Zend_Validate_Abstract
     protected $_messageTemplates = array(
         self::CHECKSUM       => "'%value%' seems to contain an invalid checksum",
         self::CONTENT        => "'%value%' must contain only digits",
-        self::INVALID        => "Invalid type given. String expected",
+        self::INVALID        => 'Invalid type given. String expected',
         self::LENGTH         => "'%value%' contains an invalid amount of digits",
         self::PREFIX         => "'%value%' is not from an allowed institute",
         self::SERVICE        => "'%value%' seems to be an invalid creditcard number",
@@ -102,16 +102,16 @@ class Zend_Validate_CreditCard extends Zend_Validate_Abstract
                                         '62290', '62291', '622920', '622921', '622922', '622923',
                                         '622924', '622925', '644', '645', '646', '647', '648',
                                         '649', '65'),
-        self::JCB              => array('3528', '3529', '353', '354', '355', '356', '357', '358'),
-        self::LASER            => array('6304', '6706', '6771', '6709'),
-        self::MAESTRO          => array('5018', '5020', '5038', '6304', '6759', '6761', '6763'),
-        self::MASTERCARD       => array('51', '52', '53', '54', '55'),
-        self::SOLO             => array('6334', '6767'),
-        self::UNIONPAY         => array('622126', '622127', '622128', '622129', '62213', '62214',
+        self::JCB        => array('3528', '3529', '353', '354', '355', '356', '357', '358'),
+        self::LASER      => array('6304', '6706', '6771', '6709'),
+        self::MAESTRO    => array('5018', '5020', '5038', '6304', '6759', '6761', '6763'),
+        self::MASTERCARD => array('51', '52', '53', '54', '55'),
+        self::SOLO       => array('6334', '6767'),
+        self::UNIONPAY   => array('622126', '622127', '622128', '622129', '62213', '62214',
                                         '62215', '62216', '62217', '62218', '62219', '6222', '6223',
                                         '6224', '6225', '6226', '6227', '6228', '62290', '62291',
                                         '622920', '622921', '622922', '622923', '622924', '622925'),
-        self::VISA             => array('4'),
+        self::VISA => array('4'),
     );
 
     /**
@@ -137,8 +137,8 @@ class Zend_Validate_CreditCard extends Zend_Validate_Abstract
     {
         if ($options instanceof Zend_Config) {
             $options = $options->toArray();
-        } else if (!is_array($options)) {
-            $options = func_get_args();
+        } elseif (!is_array($options)) {
+            $options      = func_get_args();
             $temp['type'] = array_shift($options);
             if (!empty($options)) {
                 $temp['service'] = array_shift($options);
@@ -191,7 +191,7 @@ class Zend_Validate_CreditCard extends Zend_Validate_Abstract
             $type = array($type);
         }
 
-        foreach($type as $typ) {
+        foreach ($type as $typ) {
             if (defined('self::' . strtoupper($typ)) && !in_array($typ, $this->_type)) {
                 $this->_type[] = $typ;
             }
@@ -269,7 +269,7 @@ class Zend_Validate_CreditCard extends Zend_Validate_Abstract
             }
         }
 
-        if ($foundp == false){
+        if ($foundp == false) {
             $this->_error(self::PREFIX, $value);
             return false;
         }

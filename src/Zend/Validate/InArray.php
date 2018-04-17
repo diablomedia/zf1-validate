@@ -67,7 +67,7 @@ class Zend_Validate_InArray extends Zend_Validate_Abstract
     {
         if ($options instanceof Zend_Config) {
             $options = $options->toArray();
-        } else if (!is_array($options)) {
+        } elseif (!is_array($options)) {
             throw new Zend_Validate_Exception('Array expected as parameter');
         } else {
             $count = func_num_args();
@@ -75,11 +75,11 @@ class Zend_Validate_InArray extends Zend_Validate_Abstract
             if ($count > 1) {
                 $temp['haystack'] = func_get_arg(0);
                 $temp['strict']   = func_get_arg(1);
-                $options = $temp;
+                $options          = $temp;
             } else {
                 $temp = func_get_arg(0);
                 if (!array_key_exists('haystack', $options)) {
-                    $options = array();
+                    $options             = array();
                     $options['haystack'] = $temp;
                 } else {
                     $options = $temp;
@@ -177,12 +177,12 @@ class Zend_Validate_InArray extends Zend_Validate_Abstract
         $this->_setValue($value);
         if ($this->getRecursive()) {
             $iterator = new RecursiveIteratorIterator(new RecursiveArrayIterator($this->_haystack));
-            foreach($iterator as $element) {
+            foreach ($iterator as $element) {
                 if ($this->_strict) {
                     if ($element === $value) {
                         return true;
                     }
-                } else if ($element == $value) {
+                } elseif ($element == $value) {
                     return true;
                 }
             }

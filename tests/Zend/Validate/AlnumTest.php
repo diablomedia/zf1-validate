@@ -106,7 +106,7 @@ class Zend_Validate_AlnumTest extends PHPUnit\Framework\TestCase
             $this->assertEquals(
                 $result,
                 $this->_validator->isValid($input),
-                "Expected '$input' to be considered " . ($result ? '' : 'in') . "valid"
+                "Expected '$input' to be considered " . ($result ? '' : 'in') . 'valid'
                 );
         }
     }
@@ -117,7 +117,7 @@ class Zend_Validate_AlnumTest extends PHPUnit\Framework\TestCase
     public function testEmptyStringValueResultsInProperValidationFailureMessages()
     {
         $this->assertFalse($this->_validator->isValid(''));
-        $messages = $this->_validator->getMessages();
+        $messages      = $this->_validator->getMessages();
         $arrayExpected = array(
             Zend_Validate_Alnum::STRING_EMPTY => '\'\' is an empty string'
             );
@@ -131,7 +131,7 @@ class Zend_Validate_AlnumTest extends PHPUnit\Framework\TestCase
     public function testEmptyStringValueResultsInProperValidationFailureErrors()
     {
         $this->assertFalse($this->_validator->isValid(''));
-        $errors = $this->_validator->getErrors();
+        $errors        = $this->_validator->getErrors();
         $arrayExpected = array(
             Zend_Validate_Alnum::STRING_EMPTY
             );
@@ -144,7 +144,7 @@ class Zend_Validate_AlnumTest extends PHPUnit\Framework\TestCase
     public function testInvalidValueResultsInProperValidationFailureMessages()
     {
         $this->assertFalse($this->_validator->isValid('#'));
-        $messages = $this->_validator->getMessages();
+        $messages      = $this->_validator->getMessages();
         $arrayExpected = array(
             Zend_Validate_Alnum::NOT_ALNUM => '\'#\' contains characters which are non alphabetic and no digits'
             );
@@ -158,7 +158,7 @@ class Zend_Validate_AlnumTest extends PHPUnit\Framework\TestCase
     public function testInvalidValueResultsInProperValidationFailureErrors()
     {
         $this->assertFalse($this->_validator->isValid('#'));
-        $errors = $this->_validator->getErrors();
+        $errors        = $this->_validator->getErrors();
         $arrayExpected = array(
             Zend_Validate_Alnum::NOT_ALNUM
             );

@@ -34,7 +34,7 @@ class Zend_Validate_PostCode extends Zend_Validate_Abstract
      * @var array
      */
     protected $_messageTemplates = array(
-        self::INVALID  => "Invalid type given. String or integer expected",
+        self::INVALID  => 'Invalid type given. String or integer expected',
         self::NO_MATCH => "'%value%' does not appear to be a postal code",
     );
 
@@ -87,7 +87,7 @@ class Zend_Validate_PostCode extends Zend_Validate_Abstract
 
         $format = $this->getFormat();
         if (empty($format)) {
-            throw new Zend_Validate_Exception("A postcode-format string has to be given for validation");
+            throw new Zend_Validate_Exception('A postcode-format string has to be given for validation');
         }
     }
 
@@ -152,7 +152,7 @@ class Zend_Validate_PostCode extends Zend_Validate_Abstract
     public function setFormat($format)
     {
         if (empty($format) || !is_string($format)) {
-            throw new Zend_Validate_Exception("A postcode-format string has to be given for validation");
+            throw new Zend_Validate_Exception('A postcode-format string has to be given for validation');
         }
 
         if ($format[0] !== '/') {

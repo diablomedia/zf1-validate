@@ -60,7 +60,7 @@ class Zend_Validate_FloatTest extends PHPUnit\Framework\TestCase
         if (is_string($this->_locale) && strpos($this->_locale, ';')) {
             $locales = array();
             foreach (explode(';', $this->_locale) as $l) {
-                $tmp = explode('=', $l);
+                $tmp              = explode('=', $l);
                 $locales[$tmp[0]] = $tmp[1];
             }
             setlocale(LC_ALL, $locales);
@@ -133,7 +133,7 @@ class Zend_Validate_FloatTest extends PHPUnit\Framework\TestCase
     {
         setlocale(LC_ALL, 'de');
         $valid = new Zend_Validate_Float();
-        $this->assertTrue($valid->isValid(123,456));
+        $this->assertTrue($valid->isValid(123, 456));
         $this->assertTrue($valid->isValid('123,456'));
     }
 

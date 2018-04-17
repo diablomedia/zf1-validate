@@ -87,7 +87,7 @@ class Zend_Validate_DigitsTest extends PHPUnit\Framework\TestCase
     public function testEmptyStringValueResultsInProperValidationFailureMessages()
     {
         $this->assertFalse($this->_validator->isValid(''));
-        $messages = $this->_validator->getMessages();
+        $messages      = $this->_validator->getMessages();
         $arrayExpected = array(
             Zend_Validate_Digits::STRING_EMPTY => '\'\' is an empty string'
             );
@@ -101,7 +101,7 @@ class Zend_Validate_DigitsTest extends PHPUnit\Framework\TestCase
     public function testEmptyStringValueResultsInProperValidationFailureErrors()
     {
         $this->assertFalse($this->_validator->isValid(''));
-        $errors = $this->_validator->getErrors();
+        $errors        = $this->_validator->getErrors();
         $arrayExpected = array(
             Zend_Validate_Digits::STRING_EMPTY
             );
@@ -114,7 +114,7 @@ class Zend_Validate_DigitsTest extends PHPUnit\Framework\TestCase
     public function testInvalidValueResultsInProperValidationFailureMessages()
     {
         $this->assertFalse($this->_validator->isValid('#'));
-        $messages = $this->_validator->getMessages();
+        $messages      = $this->_validator->getMessages();
         $arrayExpected = array(
             Zend_Validate_Digits::NOT_DIGITS => '\'#\' must contain only digits'
             );
@@ -128,7 +128,7 @@ class Zend_Validate_DigitsTest extends PHPUnit\Framework\TestCase
     public function testInvalidValueResultsInProperValidationFailureErrors()
     {
         $this->assertFalse($this->_validator->isValid('#'));
-        $errors = $this->_validator->getErrors();
+        $errors        = $this->_validator->getErrors();
         $arrayExpected = array(
             Zend_Validate_Digits::NOT_DIGITS
             );

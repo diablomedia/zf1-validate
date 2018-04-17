@@ -30,7 +30,7 @@ class Zend_Validate_Between extends Zend_Validate_Abstract
     /**
      * Validation failure message key for when the value is not between the min and max, inclusively
      */
-    const NOT_BETWEEN        = 'notBetween';
+    const NOT_BETWEEN = 'notBetween';
 
     /**
      * Validation failure message key for when the value is not strictly between the min and max
@@ -95,8 +95,8 @@ class Zend_Validate_Between extends Zend_Validate_Abstract
     {
         if ($options instanceof Zend_Config) {
             $options = $options->toArray();
-        } else if (!is_array($options)) {
-            $options = func_get_args();
+        } elseif (!is_array($options)) {
+            $options     = func_get_args();
             $temp['min'] = array_shift($options);
             if (!empty($options)) {
                 $temp['max'] = array_shift($options);
@@ -214,5 +214,4 @@ class Zend_Validate_Between extends Zend_Validate_Abstract
         }
         return true;
     }
-
 }

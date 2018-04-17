@@ -20,6 +20,7 @@ install:
 
 stages:
   - test
+  - style check
   - phpstan analysis
   - test with coverage
 
@@ -34,6 +35,11 @@ jobs:
   allow_failures:
     - php: nightly
   include:
+    - stage: style check
+      php: 7.1
+      env: TMPDIR=/tmp USE_XDEBUG=false
+      script:
+        - composer style-check
     - stage: phpstan analysis
       php: 7.1
       env: TMPDIR=/tmp USE_XDEBUG=false
@@ -41,8 +47,14 @@ jobs:
         - composer phpstan
     - stage: test with coverage
       php: 7.1
-      env: TMPDIR=/tmp USE_XDEBUG=true
+      env: TMPDIR=/tmp USE_XDEBUG=true CC_TEST_REPORTER_ID=5ab935563ba4d3f3f8212c52cdd086b976ffec723fb6c380ba1d01890c3e2b6d
+      before_script:
+        - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        - chmod +x ./cc-test-reporter
+        - ./cc-test-reporter before-build
       script:
         - composer test-with-coverage
       after_success:
         - bash <(curl -s https://codecov.io/bash) -f ./clover.xml
+      after_script:
+        - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

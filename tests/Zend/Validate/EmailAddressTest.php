@@ -87,7 +87,7 @@ class Zend_Validate_EmailAddressTest extends PHPUnit\Framework\TestCase
      */
     public function testIPAllowed()
     {
-        $validator = new Zend_Validate_EmailAddress(Zend_Validate_Hostname::ALLOW_DNS | Zend_Validate_Hostname::ALLOW_IP);
+        $validator      = new Zend_Validate_EmailAddress(Zend_Validate_Hostname::ALLOW_DNS | Zend_Validate_Hostname::ALLOW_IP);
         $valuesExpected = array(
             array(Zend_Validate_Hostname::ALLOW_DNS, true, array('bob@212.212.20.4')),
             array(Zend_Validate_Hostname::ALLOW_DNS, false, array('bob@localhost'))
@@ -291,11 +291,11 @@ class Zend_Validate_EmailAddressTest extends PHPUnit\Framework\TestCase
         }
     }
 
-   /**
-     * Ensures that the validator follows expected behavior for valid email addresses with complex local parts
-     *
-     * @return void
-     */
+    /**
+      * Ensures that the validator follows expected behavior for valid email addresses with complex local parts
+      *
+      * @return void
+      */
     public function testComplexLocalValid()
     {
         $emailAddresses = array(
@@ -313,11 +313,11 @@ class Zend_Validate_EmailAddressTest extends PHPUnit\Framework\TestCase
     }
 
 
-   /**
-     * Ensures that the validator follows expected behavior for checking MX records
-     *
-     * @return void
-     */
+    /**
+      * Ensures that the validator follows expected behavior for checking MX records
+      *
+      * @return void
+      */
     public function testMXRecords()
     {
         if (!defined('TESTS_ZEND_VALIDATE_ONLINE_ENABLED')
@@ -356,11 +356,11 @@ class Zend_Validate_EmailAddressTest extends PHPUnit\Framework\TestCase
         }
     }
 
-   /**
-     * Test changing hostname settings via EmailAddress object
-     *
-     * @return void
-     */
+    /**
+      * Test changing hostname settings via EmailAddress object
+      *
+      * @return void
+      */
     public function testHostnameSettings()
     {
         $validator = new Zend_Validate_EmailAddress();
@@ -404,22 +404,22 @@ class Zend_Validate_EmailAddressTest extends PHPUnit\Framework\TestCase
     public function testHostnameValidatorMessagesShouldBeTranslated()
     {
         $hostnameValidator = new Zend_Validate_Hostname();
-        $translations = array(
-            'hostnameIpAddressNotAllowed' => 'hostnameIpAddressNotAllowed translation',
-            'hostnameUnknownTld' => 'hostnameUnknownTld translation',
-            'hostnameDashCharacter' => 'hostnameDashCharacter translation',
+        $translations      = array(
+            'hostnameIpAddressNotAllowed'   => 'hostnameIpAddressNotAllowed translation',
+            'hostnameUnknownTld'            => 'hostnameUnknownTld translation',
+            'hostnameDashCharacter'         => 'hostnameDashCharacter translation',
             'hostnameInvalidHostnameSchema' => 'hostnameInvalidHostnameSchema translation',
-            'hostnameUndecipherableTld' => 'hostnameUndecipherableTld translation',
-            'hostnameInvalidHostname' => 'hostnameInvalidHostname translation',
-            'hostnameInvalidLocalName' => 'hostnameInvalidLocalName translation',
-            'hostnameLocalNameNotAllowed' => 'hostnameLocalNameNotAllowed translation',
+            'hostnameUndecipherableTld'     => 'hostnameUndecipherableTld translation',
+            'hostnameInvalidHostname'       => 'hostnameInvalidHostname translation',
+            'hostnameInvalidLocalName'      => 'hostnameInvalidLocalName translation',
+            'hostnameLocalNameNotAllowed'   => 'hostnameLocalNameNotAllowed translation',
         );
         $translator = new Zend_Translate('array', $translations);
         $this->_validator->setTranslator($translator)->setHostnameValidator($hostnameValidator);
 
         $this->_validator->isValid('_XX.!!3xx@0.239,512.777');
         $messages = $hostnameValidator->getMessages();
-        $found = false;
+        $found    = false;
         foreach ($messages as $code => $message) {
             if (array_key_exists($code, $translations)) {
                 $this->assertEquals($translations[$code], $message);
@@ -458,20 +458,20 @@ class Zend_Validate_EmailAddressTest extends PHPUnit\Framework\TestCase
     public function testSettingHostnameMessagesThroughEmailValidator()
     {
         $translations = array(
-            'hostnameIpAddressNotAllowed' => 'hostnameIpAddressNotAllowed translation',
-            'hostnameUnknownTld' => 'hostnameUnknownTld translation',
-            'hostnameDashCharacter' => 'hostnameDashCharacter translation',
+            'hostnameIpAddressNotAllowed'   => 'hostnameIpAddressNotAllowed translation',
+            'hostnameUnknownTld'            => 'hostnameUnknownTld translation',
+            'hostnameDashCharacter'         => 'hostnameDashCharacter translation',
             'hostnameInvalidHostnameSchema' => 'hostnameInvalidHostnameSchema translation',
-            'hostnameUndecipherableTld' => 'hostnameUndecipherableTld translation',
-            'hostnameInvalidHostname' => 'hostnameInvalidHostname translation',
-            'hostnameInvalidLocalName' => 'hostnameInvalidLocalName translation',
-            'hostnameLocalNameNotAllowed' => 'hostnameLocalNameNotAllowed translation',
+            'hostnameUndecipherableTld'     => 'hostnameUndecipherableTld translation',
+            'hostnameInvalidHostname'       => 'hostnameInvalidHostname translation',
+            'hostnameInvalidLocalName'      => 'hostnameInvalidLocalName translation',
+            'hostnameLocalNameNotAllowed'   => 'hostnameLocalNameNotAllowed translation',
         );
 
         $this->_validator->setMessages($translations);
         $this->_validator->isValid('_XX.!!3xx@0.239,512.777');
         $messages = $this->_validator->getMessages();
-        $found = false;
+        $found    = false;
         foreach ($messages as $code => $message) {
             if (array_key_exists($code, $translations)) {
                 $this->assertEquals($translations[$code], $message);
@@ -488,7 +488,7 @@ class Zend_Validate_EmailAddressTest extends PHPUnit\Framework\TestCase
      */
     public function testInstanceWithOldOptions()
     {
-        $handler = set_error_handler(array($this, 'errorHandler'), E_USER_NOTICE);
+        $handler   = set_error_handler(array($this, 'errorHandler'), E_USER_NOTICE);
         $validator = new Zend_Validate_EmailAddress();
         $options   = $validator->getOptions();
 

@@ -82,7 +82,8 @@ class Zend_Validate_MessageTest extends PHPUnit\Framework\TestCase
     public function testSetMessageDefaultKey()
     {
         $this->_validator->setMessage(
-            'Your value is too short', Zend_Validate_StringLength::TOO_SHORT
+            'Your value is too short',
+            Zend_Validate_StringLength::TOO_SHORT
         );
 
         $this->assertFalse($this->_validator->isValid('abc'));
@@ -168,8 +169,10 @@ class Zend_Validate_MessageTest extends PHPUnit\Framework\TestCase
             );
             $this->fail('Expected to catch Zend_Validate_Exception');
         } catch (Zend_Exception $e) {
-            $this->assertTrue($e instanceof Zend_Validate_Exception,
-                'Expected exception of type Zend_Validate_Exception, got ' . get_class($e));
+            $this->assertTrue(
+                $e instanceof Zend_Validate_Exception,
+                'Expected exception of type Zend_Validate_Exception, got ' . get_class($e)
+            );
             $this->assertEquals("No message template exists for key '$keyInvalid'", $e->getMessage());
         }
     }
@@ -246,8 +249,10 @@ class Zend_Validate_MessageTest extends PHPUnit\Framework\TestCase
             $property = $this->_validator->unknownProperty;
             $this->fail('Expected to catch Zend_Validate_Exception');
         } catch (Zend_Exception $e) {
-            $this->assertTrue($e instanceof Zend_Validate_Exception,
-                'Expected exception of type Zend_Validate_Exception, got ' . get_class($e));
+            $this->assertTrue(
+                $e instanceof Zend_Validate_Exception,
+                'Expected exception of type Zend_Validate_Exception, got ' . get_class($e)
+            );
             $this->assertEquals("No property exists by the name 'unknownProperty'", $e->getMessage());
         }
     }
@@ -291,5 +296,4 @@ class Zend_Validate_MessageTest extends PHPUnit\Framework\TestCase
         $messages = $this->_validator->getMessages();
         $this->assertEquals('variables: %notvar% 4 8 ', current($messages));
     }
-
 }

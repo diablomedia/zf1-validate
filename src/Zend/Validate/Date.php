@@ -27,9 +27,9 @@
  */
 class Zend_Validate_Date extends Zend_Validate_Abstract
 {
-    const INVALID        = 'dateInvalid';
-    const INVALID_DATE   = 'dateInvalidDate';
-    const FALSEFORMAT    = 'dateFalseFormat';
+    const INVALID      = 'dateInvalid';
+    const INVALID_DATE = 'dateInvalidDate';
+    const FALSEFORMAT  = 'dateFalseFormat';
 
     /**
      * Validation failure message template definitions
@@ -37,16 +37,16 @@ class Zend_Validate_Date extends Zend_Validate_Abstract
      * @var array
      */
     protected $_messageTemplates = array(
-        self::INVALID        => "Invalid type given. String, integer, array or Zend_Date expected",
-        self::INVALID_DATE   => "'%value%' does not appear to be a valid date",
-        self::FALSEFORMAT    => "'%value%' does not fit the date format '%format%'",
+        self::INVALID      => 'Invalid type given. String, integer, array or Zend_Date expected',
+        self::INVALID_DATE => "'%value%' does not appear to be a valid date",
+        self::FALSEFORMAT  => "'%value%' does not fit the date format '%format%'",
     );
 
     /**
      * @var array
      */
     protected $_messageVariables = array(
-        'format'  => '_format'
+        'format' => '_format'
     );
 
     /**
@@ -72,8 +72,8 @@ class Zend_Validate_Date extends Zend_Validate_Abstract
     {
         if ($options instanceof Zend_Config) {
             $options = $options->toArray();
-        } else if (!is_array($options)) {
-            $options = func_get_args();
+        } elseif (!is_array($options)) {
+            $options        = func_get_args();
             $temp['format'] = array_shift($options);
             if (!empty($options)) {
                 $temp['locale'] = array_shift($options);
@@ -201,7 +201,7 @@ class Zend_Validate_Date extends Zend_Validate_Abstract
         try {
             $parsed = Zend_Locale_Format::getDate($value, array(
                                                   'date_format' => $this->_format, 'format_type' => 'iso',
-                                                  'fix_date' => false));
+                                                  'fix_date'    => false));
             if (isset($parsed['year']) and ((strpos(strtoupper($this->_format), 'YY') !== false) and
                 (strpos(strtoupper($this->_format), 'YYYY') === false))) {
                 $parsed['year'] = Zend_Date::getFullYear($parsed['year']);

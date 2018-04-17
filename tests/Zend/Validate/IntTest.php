@@ -70,8 +70,11 @@ class Zend_Validate_IntTest extends PHPUnit\Framework\TestCase
             );
 
         foreach ($valuesExpected as $element) {
-            $this->assertEquals($element[1], $this->_validator->isValid($element[0]),
-                'Test failed with ' . var_export($element, 1));
+            $this->assertEquals(
+                $element[1],
+                $this->_validator->isValid($element[0]),
+                'Test failed with ' . var_export($element, 1)
+            );
         }
     }
 

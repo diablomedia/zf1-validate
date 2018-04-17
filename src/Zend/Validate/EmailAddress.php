@@ -41,7 +41,7 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
      * @var array
      */
     protected $_messageTemplates = array(
-        self::INVALID            => "Invalid type given. String expected",
+        self::INVALID            => 'Invalid type given. String expected',
         self::INVALID_FORMAT     => "'%value%' is not a valid email address in the basic format local-part@hostname",
         self::INVALID_HOSTNAME   => "'%hostname%' is not a valid hostname for email address '%value%'",
         self::INVALID_MX_RECORD  => "'%hostname%' does not appear to have a valid MX record for the email address '%value%'",
@@ -128,8 +128,8 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
     {
         if ($options instanceof Zend_Config) {
             $options = $options->toArray();
-        } else if (!is_array($options)) {
-            $options = func_get_args();
+        } elseif (!is_array($options)) {
+            $options       = func_get_args();
             $temp['allow'] = array_shift($options);
             if (!empty($options)) {
                 $temp['mx'] = array_shift($options);
@@ -336,15 +336,16 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
      * @param string $host
      * @return boolean
      */
-    private function _isReserved($host){
+    private function _isReserved($host)
+    {
         if (!preg_match('/^([0-9]{1,3}\.){3}[0-9]{1,3}$/', $host)) {
             $host = gethostbyname($host);
         }
 
-        $octet = explode('.',$host);
+        $octet = explode('.', $host);
         if ((int)$octet[0] >= 224) {
             return true;
-        } else if (array_key_exists($octet[0], $this->_invalidIp)) {
+        } elseif (array_key_exists($octet[0], $this->_invalidIp)) {
             foreach ((array)$this->_invalidIp[$octet[0]] as $subnetData) {
                 // we skip the first loop as we already know that octet matches
                 for ($i = 1; $i < 4; $i++) {
@@ -353,11 +354,11 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
                     }
                 }
 
-                $host       = explode("/", $subnetData);
-                $binaryHost = "";
-                $tmp        = explode(".", $host[0]);
+                $host       = explode('/', $subnetData);
+                $binaryHost = '';
+                $tmp        = explode('.', $host[0]);
                 for ($i = 0; $i < 4 ; $i++) {
-                    $binaryHost .= str_pad(decbin($tmp[$i]), 8, "0", STR_PAD_LEFT);
+                    $binaryHost .= str_pad(decbin($tmp[$i]), 8, '0', STR_PAD_LEFT);
                 }
 
                 $segmentData = array(
@@ -388,7 +389,7 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
     private function _toIp($binary)
     {
         $ip  = array();
-        $tmp = explode(".", chunk_split($binary, 8, "."));
+        $tmp = explode('.', chunk_split($binary, 8, '.'));
         for ($i = 0; $i < 4 ; $i++) {
             $ip[$i] = bindec($tmp[$i]);
         }
@@ -418,7 +419,7 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
             // Quoted-string characters are: DQUOTE *(qtext/quoted-pair) DQUOTE
             $qtext      = '\x20-\x21\x23-\x5b\x5d-\x7e'; // %d32-33 / %d35-91 / %d93-126
             $quotedPair = '\x20-\x7e'; // %d92 %d32-126
-            if (preg_match('/^"(['. $qtext .']|\x5c[' . $quotedPair . '])*"$/', $this->_localPart)) {
+            if (preg_match('/^"([' . $qtext . ']|\x5c[' . $quotedPair . '])*"$/', $this->_localPart)) {
                 $result = true;
             } else {
                 $this->_error(self::DOT_ATOM);
@@ -437,7 +438,7 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
      */
     private function _validateMXRecords()
     {
-        $mxHosts = array();
+        $mxHosts  = array();
         $hostname = $this->_hostname;
 
         //decode IDN domain name if possible
@@ -448,7 +449,7 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
         $result = getmxrr($hostname, $mxHosts);
         if (!$result) {
             $this->_error(self::INVALID_MX_RECORD);
-        } else if ($this->_options['deep'] && function_exists('checkdnsrr')) {
+        } elseif ($this->_options['deep'] && function_exists('checkdnsrr')) {
             $validAddress = false;
             $reserved     = true;
             foreach ($mxHosts as $hostname) {
@@ -458,9 +459,9 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
                 }
 
                 if (!$res
-                    && (checkdnsrr($hostname, "A")
-                    || checkdnsrr($hostname, "AAAA")
-                    || checkdnsrr($hostname, "A6"))) {
+                    && (checkdnsrr($hostname, 'A')
+                    || checkdnsrr($hostname, 'AAAA')
+                    || checkdnsrr($hostname, 'A6'))) {
                     $validAddress = true;
                     break;
                 }
@@ -499,7 +500,7 @@ class Zend_Validate_EmailAddress extends Zend_Validate_Abstract
             foreach ($this->_options['hostname']->getErrors() as $error) {
                 $this->_errors[] = $error;
             }
-        } else if ($this->_options['mx']) {
+        } elseif ($this->_options['mx']) {
             // MX check on hostname
             $hostname = $this->_validateMXRecords();
         }

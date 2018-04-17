@@ -227,11 +227,15 @@ class Zend_Validate_AbstractTest extends PHPUnit\Framework\TestCase
     {
         $messages = $this->validator->getMessageTemplates();
         $this->assertEquals(
-            array('fooMessage' => '%value% was passed'), $messages);
+            array('fooMessage' => '%value% was passed'),
+            $messages
+        );
 
         $this->assertEquals(
             array(
-                Zend_Validate_AbstractTest_Concrete::FOO_MESSAGE => '%value% was passed'), $messages);
+                Zend_Validate_AbstractTest_Concrete::FOO_MESSAGE => '%value% was passed'),
+            $messages
+        );
     }
 
     public function testMaximumErrorMessageLength()
