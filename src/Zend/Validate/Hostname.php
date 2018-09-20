@@ -1795,6 +1795,15 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
                             break 2;
                         }
 
+                        // This fixes a PCRE bug in the version of PCRE that's bundled with php 7.3.0rc1
+                        // If a newer version of PCRE gets bundled with php 7.3.0 before GA release that fixes this
+                        // issue, this can be removed.
+                        // @see https://bugs.php.net/bug.php?id=76909
+                        if (version_compare(PHP_VERSION, '7.3') >= 0) {
+                            $oldPcreJitValue = ini_get('pcre.jit');
+                            ini_set('pcre.jit', 0);
+                        }
+
                         // Check each domain part
                         $checked = false;
                         foreach ($regexChars as $regexKey => $regexChar) {
@@ -1813,6 +1822,11 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
                                     break;
                                 }
                             }
+                        }
+
+                        // This goes with the ini_set and ini_get above, just resetting to previous value
+                        if (isset($oldPcreJitValue)) {
+                            ini_set('pcre.jit', $oldPcreJitValue);
                         }
 
                         if ($checked) {
