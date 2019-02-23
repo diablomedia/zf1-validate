@@ -59,7 +59,7 @@ class Zend_Validate_BetweenTest extends PHPUnit\Framework\TestCase
                 $this->assertEquals(
                     $element[3],
                     $validator->isValid($input),
-                'Failed values: ' . $input . ':' . implode("\n", $validator->getMessages())
+                    'Failed values: ' . $input . ':' . implode("\n", $validator->getMessages())
                 );
             }
         }

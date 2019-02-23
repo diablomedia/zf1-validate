@@ -80,7 +80,7 @@ class Zend_Validate_DateTest extends PHPUnit\Framework\TestCase
             $this->assertEquals(
                 $result,
                 $this->_validator->isValid($input),
-                                "'$input' expected to be " . ($result ? '' : 'in') . 'valid'
+                "'$input' expected to be " . ($result ? '' : 'in') . 'valid'
             );
         }
     }

@@ -49,7 +49,7 @@ class Zend_Validate_IbanTest extends PHPUnit\Framework\TestCase
             $this->assertEquals(
                 $result,
                 $validator->isValid($input),
-                                "'$input' expected to be " . ($result ? '' : 'in') . 'valid'
+                "'$input' expected to be " . ($result ? '' : 'in') . 'valid'
             );
         }
     }
