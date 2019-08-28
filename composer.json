@@ -46,7 +46,7 @@
         "jetbrains/phpstorm-stubs": "dev-phpstan",
         "friendsofphp/php-cs-fixer": "2.15.2",
         "maglnet/composer-require-checker": "^0.2.1",
-        "phpro/grumphp": "^0.14.0"
+        "phpro/grumphp": "^0.14.0 || ^0.15.0"
     },
     "include-path": [
         "src/"
