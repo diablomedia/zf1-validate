@@ -108,7 +108,7 @@ class Zend_Validate_AlphaTest extends PHPUnit\Framework\TestCase
                 $result,
                 $this->_validator->isValid($input),
                 "Expected '$input' to be considered " . ($result ? '' : 'in') . 'valid'
-                );
+            );
         }
     }
 

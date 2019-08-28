@@ -132,7 +132,7 @@ class Zend_Validate_StringLengthTest extends PHPUnit\Framework\TestCase
             $this->assertEquals(
                 "The minimum must be less than or equal to the maximum length, but $min > $max",
                 $e->getMessage()
-                );
+            );
         }
     }
 
@@ -152,7 +152,7 @@ class Zend_Validate_StringLengthTest extends PHPUnit\Framework\TestCase
             $this->assertEquals(
                 "The maximum must be greater than or equal to the minimum length, but $max < $min",
                 $e->getMessage()
-                );
+            );
         }
     }
 

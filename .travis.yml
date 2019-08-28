@@ -9,7 +9,10 @@ cache:
 
 env:
   global:
-    - COMPOSER_ARGS="" TMPDIR=/tmp USE_XDEBUG=false
+    - COMPOSER_ARGS=""
+    - TMPDIR=/tmp
+    - USE_XDEBUG=false
+    - COMPOSER_DISCARD_CHANGES=1
 
 branches:
   only:
