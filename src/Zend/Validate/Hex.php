@@ -45,7 +45,7 @@ class Zend_Validate_Hex extends Zend_Validate_Abstract
      *
      * Returns true if and only if $value contains only hexadecimal digit characters
      *
-     * @param  string $value
+     * @param  string|int $value
      * @return boolean
      */
     public function isValid($value)

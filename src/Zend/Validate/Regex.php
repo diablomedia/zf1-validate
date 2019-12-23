@@ -111,7 +111,7 @@ class Zend_Validate_Regex extends Zend_Validate_Abstract
      *
      * Returns true if and only if $value matches against the pattern option
      *
-     * @param  string $value
+     * @param  string|int|float $value
      * @return boolean
      */
     public function isValid($value)

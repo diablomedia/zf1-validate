@@ -106,7 +106,7 @@ class Zend_Validate_Alnum extends Zend_Validate_Abstract
      *
      * Returns true if and only if $value contains only alphabetic and digit characters
      *
-     * @param  string $value
+     * @param  string|int|float $value
      * @return boolean
      */
     public function isValid($value)

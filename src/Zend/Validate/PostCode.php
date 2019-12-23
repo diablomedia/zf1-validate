@@ -172,7 +172,7 @@ class Zend_Validate_PostCode extends Zend_Validate_Abstract
      *
      * Returns true if and only if $value is a valid postalcode
      *
-     * @param  string $value
+     * @param  string|int $value
      * @return boolean
      */
     public function isValid($value)
