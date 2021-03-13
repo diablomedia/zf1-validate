@@ -39,7 +39,7 @@ class Zend_Validate_IdenticalTest extends PHPUnit\Framework\TestCase
      */
     private $validator;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->validator = new Zend_Validate_Identical;
     }

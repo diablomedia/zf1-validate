@@ -10,14 +10,14 @@
     "license": "BSD-3-Clause",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.0.0",
+        "php": "^7.0 || ^8.0",
         "diablomedia/zendframework1-exception": "^1.0.1",
         "diablomedia/zendframework1-config": "^1.0.0 || ^2.0.0",
         "diablomedia/zendframework1-loader": "^1.0.0",
         "diablomedia/zendframework1-registry": "^1.0.2",
         "diablomedia/zendframework1-date": "^1.0.0",
         "diablomedia/zendframework1-filter": "^1.0.0",
-        "diablomedia/zendframework1-locale": "^1.0.0",
+        "diablomedia/zendframework1-locale": "dev-github-actions as 1.0.0",
         "diablomedia/zendframework1-translate": "^1.0.0"
     },
     "autoload": {
@@ -33,31 +33,25 @@
             "Zend_": "tests/"
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "no-api": true,
-            "url": "https://github.com/diablomedia/phpstorm-stubs"
-        }
-    ],
     "require-dev": {
-        "phpunit/phpunit": "^7.0",
-        "phpstan/phpstan": "0.12.39",
-        "jetbrains/phpstorm-stubs": "dev-phpstan",
-        "friendsofphp/php-cs-fixer": "2.16.4",
+        "phpunit/phpunit": "^8.0",
+        "phpstan/phpstan": "0.12.81",
+        "friendsofphp/php-cs-fixer": "2.18.3",
         "maglnet/composer-require-checker": "^1.0.0 || ^2.0.0",
-        "phpro/grumphp": "^0.16.0"
+        "phpro/grumphp-shim": "^0.22.0 || ^1.1"
     },
     "include-path": [
         "src/"
     ],
     "archive": {
-        "exclude": ["/tests"]
+        "exclude": [
+            "/tests"
+        ]
     },
     "scripts": {
         "test": "phpunit",
         "test-with-coverage": "phpunit --coverage-clover=clover.xml",
-        "phpstan": "phpstan analyze -c phpstan.neon --no-progress --ansi",
+        "phpstan": "phpstan analyze -c phpstan.neon --no-progress --ansi --memory-limit=768M",
         "style-check": "php-cs-fixer fix --dry-run -vv"
     },
     "suggest": {

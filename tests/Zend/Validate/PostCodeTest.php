@@ -43,7 +43,7 @@ class Zend_Validate_PostCodeTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->_validator = new Zend_Validate_PostCode('de_AT');
     }
@@ -97,7 +97,7 @@ class Zend_Validate_PostCodeTest extends PHPUnit\Framework\TestCase
             $this->_validator->setLocale('de');
             $this->fail();
         } catch (Zend_Validate_Exception $e) {
-            $this->assertContains('Unable to detect a region', $e->getMessage());
+            $this->assertStringContainsString('Unable to detect a region', $e->getMessage());
         }
     }
 
@@ -110,7 +110,7 @@ class Zend_Validate_PostCodeTest extends PHPUnit\Framework\TestCase
             $this->_validator->setLocale('nus_SD');
             $this->fail();
         } catch (Zend_Validate_Exception $e) {
-            $this->assertContains('Unable to detect a postcode format', $e->getMessage());
+            $this->assertStringContainsString('Unable to detect a postcode format', $e->getMessage());
         }
     }
 
@@ -143,14 +143,14 @@ class Zend_Validate_PostCodeTest extends PHPUnit\Framework\TestCase
             $this->_validator->setFormat(null);
             $this->fail();
         } catch (Zend_Validate_Exception $e) {
-            $this->assertContains('A postcode-format string has to be given', $e->getMessage());
+            $this->assertStringContainsString('A postcode-format string has to be given', $e->getMessage());
         }
 
         try {
             $this->_validator->setFormat('');
             $this->fail();
         } catch (Zend_Validate_Exception $e) {
-            $this->assertContains('A postcode-format string has to be given', $e->getMessage());
+            $this->assertStringContainsString('A postcode-format string has to be given', $e->getMessage());
         }
     }
 
@@ -161,6 +161,6 @@ class Zend_Validate_PostCodeTest extends PHPUnit\Framework\TestCase
     {
         $this->assertFalse($this->_validator->isValid('hello'));
         $message = $this->_validator->getMessages();
-        $this->assertContains('not appear to be a postal code', $message['postcodeNoMatch']);
+        $this->assertStringContainsString('not appear to be a postal code', $message['postcodeNoMatch']);
     }
 }

@@ -43,7 +43,7 @@ class Zend_Validate_MessageTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->_validator = new Zend_Validate_StringLength(4, 8);
     }
@@ -284,7 +284,7 @@ class Zend_Validate_MessageTest extends PHPUnit\Framework\TestCase
     {
         $vars = $this->_validator->getMessageVariables();
 
-        $this->assertInternalType('array', $vars);
+        $this->assertIsArray($vars);
         $this->assertEquals(array('min', 'max'), $vars);
         $message = 'variables: %notvar% ';
         foreach ($vars as $var) {
