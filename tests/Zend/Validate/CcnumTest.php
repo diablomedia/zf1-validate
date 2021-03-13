@@ -90,7 +90,7 @@ class Zend_Validate_CcnumTest extends PHPUnit\Framework\TestCase
      * @param  array   $errcontext
      * @return void
      */
-    public function errorHandlerIgnore($errno, $errstr, $errfile, $errline, array $errcontext)
+    public function errorHandlerIgnore($errno, $errstr, $errfile, $errline, array $errcontext = array())
     {
         $this->_errorOccured = true;
     }
