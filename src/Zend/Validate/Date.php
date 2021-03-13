@@ -198,6 +198,10 @@ class Zend_Validate_Date extends Zend_Validate_Abstract
      */
     private function _checkFormat($value)
     {
+        if (!is_string($value)) {
+            return false;
+        }
+
         try {
             $parsed = Zend_Locale_Format::getDate($value, array(
                                                   'date_format' => $this->_format, 'format_type' => 'iso',
