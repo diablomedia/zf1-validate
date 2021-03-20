@@ -15,9 +15,9 @@
         "diablomedia/zendframework1-config": "^1.0.0 || ^2.0.0",
         "diablomedia/zendframework1-loader": "^1.0.0",
         "diablomedia/zendframework1-registry": "^1.0.2",
-        "diablomedia/zendframework1-date": "dev-leap-year-fix as 1.0.0",
+        "diablomedia/zendframework1-date": "^1.0.4",
         "diablomedia/zendframework1-filter": "^1.0.0",
-        "diablomedia/zendframework1-locale": "dev-github-actions as 1.0.3",
+        "diablomedia/zendframework1-locale": "^1.0.5",
         "diablomedia/zendframework1-translate": "^1.0.0"
     },
     "autoload": {
