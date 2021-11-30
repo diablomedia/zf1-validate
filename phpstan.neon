@@ -2,7 +2,7 @@ parameters:
     level: 4
     paths:
         - ./
-    excludes_analyse:
+    excludePaths:
         - ./vendor/*
         - ./tests/*
         # These files contain giant arrays that seem to make newer versions of phpstan stall/crash
@@ -18,3 +18,13 @@ parameters:
         # Defensive since phpdoc doc blocks alone aren't enough to protect type
         - '#Result of && is always false\.#'
         - '#Result of \|\| is always true\.#'
+        # This is intentional for short circuiting/execution flow management
+        -
+            message: '#Do-while loop condition is always false\.#'
+            path: ./src/Zend/Validate/Hostname.php
+        # I think this is a mistake on PHPStan's part, as it's a loop the decrements, so seems like it'll get below 0
+        # at some point.
+        -
+            message: '#Comparison operation ">=" between int<8, 17> and 0 is always true\.#'
+            path: ./src/Zend/Validate/Ccnum.php
+

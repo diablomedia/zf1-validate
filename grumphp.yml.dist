@@ -7,7 +7,7 @@ grumphp:
             config_file: require-checker-config.json
         phpcsfixer2:
             allow_risky: true
-            config: .php_cs
+            config: .php-cs-fixer.php
         phpstan:
             configuration: phpstan.neon
             memory_limit: 768M

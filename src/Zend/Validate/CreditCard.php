@@ -124,9 +124,9 @@ class Zend_Validate_CreditCard extends Zend_Validate_Abstract
     /**
      * Service callback for additional validation
      *
-     * @var callable
+     * @var callable|null
      */
-    protected $_service;
+    protected $_service = null;
 
     /**
      * Constructor

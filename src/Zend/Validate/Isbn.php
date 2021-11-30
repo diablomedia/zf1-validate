@@ -158,7 +158,7 @@ class Zend_Validate_Isbn extends Zend_Validate_Abstract
                 $isbn10 = str_replace($this->_separator, '', $value);
                 $sum    = 0;
                 for ($i = 0; $i < 9; $i++) {
-                    $sum += (10 - $i) * $isbn10[$i];
+                    $sum += (10 - $i) * (float) $isbn10[$i];
                 }
 
                 // checksum

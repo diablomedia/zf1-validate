@@ -45,10 +45,8 @@ class Zend_Validate_HostnameTest extends PHPUnit\Framework\TestCase
      */
     public function setUp(): void
     {
-        $this->_origEncoding = PHP_VERSION_ID < 50600
-                    ? iconv_get_encoding('internal_encoding')
-                    : ini_get('default_charset');
-        $this->_validator = new Zend_Validate_Hostname();
+        $this->_origEncoding = ini_get('default_charset');
+        $this->_validator    = new Zend_Validate_Hostname();
     }
 
     /**
@@ -56,11 +54,7 @@ class Zend_Validate_HostnameTest extends PHPUnit\Framework\TestCase
      */
     public function tearDown(): void
     {
-        if (PHP_VERSION_ID < 50600) {
-            iconv_set_encoding('internal_encoding', $this->_origEncoding);
-        } else {
-            ini_set('default_charset', $this->_origEncoding);
-        }
+        ini_set('default_charset', $this->_origEncoding);
     }
 
     /**
@@ -361,11 +355,7 @@ class Zend_Validate_HostnameTest extends PHPUnit\Framework\TestCase
      */
     public function testDifferentIconvEncoding()
     {
-        if (PHP_VERSION_ID < 50600) {
-            iconv_set_encoding('internal_encoding', 'ISO8859-1');
-        } else {
-            ini_set('default_charset', 'ISO8859-1');
-        }
+        ini_set('default_charset', 'ISO8859-1');
         $validator = new Zend_Validate_Hostname();
 
         $valuesExpected = array(

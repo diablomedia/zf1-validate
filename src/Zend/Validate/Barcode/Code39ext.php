@@ -35,9 +35,9 @@ class Zend_Validate_Barcode_Code39ext extends Zend_Validate_Barcode_AdapterAbstr
 
     /**
      * Allowed barcode characters
-     * @var int
+     * @var string
      */
-    protected $_characters = 128;
+    protected $_characters = '128';
 
     /**
      * Constructor
