@@ -49,7 +49,7 @@ jobs:
             - name: Test
               run: composer test-with-coverage
             - name: Upload Coverage
-              uses: codecov/codecov-action@v2
+              uses: codecov/codecov-action@v3
               with:
                 files: ./clover.xml
                 fail_ci_if_error: true
