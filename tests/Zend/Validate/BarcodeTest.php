@@ -219,9 +219,9 @@ class Zend_Validate_BarcodeTest extends PHPUnit\Framework\TestCase
         $this->assertTrue($barcode->isValid('Test93Test93Test'));
 
         // @TODO: CODE39 EXTENDED CHECKSUM VALIDATION MISSING
-//        $barcode->setChecksum(true);
-//        $this->assertTrue($barcode->isValid('159AZH'));
-//        $this->assertFalse($barcode->isValid('159AZG'));
+        //        $barcode->setChecksum(true);
+        //        $this->assertTrue($barcode->isValid('159AZH'));
+        //        $this->assertFalse($barcode->isValid('159AZG'));
     }
 
     public function testCODE93()
@@ -242,9 +242,9 @@ class Zend_Validate_BarcodeTest extends PHPUnit\Framework\TestCase
         $this->assertTrue($barcode->isValid('Test93+'));
 
         // @TODO: CODE93 EXTENDED CHECKSUM VALIDATION MISSING
-//        $barcode->setChecksum(true);
-//        $this->assertTrue($barcode->isValid('CODE 93E0'));
-//        $this->assertFalse($barcode->isValid('CODE 93E1'));
+        //        $barcode->setChecksum(true);
+        //        $this->assertTrue($barcode->isValid('CODE 93E0'));
+        //        $this->assertFalse($barcode->isValid('CODE 93E1'));
     }
 
     public function testEAN2()

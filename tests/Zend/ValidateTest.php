@@ -31,6 +31,8 @@
  */
 class Zend_ValidateTest extends PHPUnit\Framework\TestCase
 {
+    protected $_errorOccurred;
+
     /**
      * Zend_Validate object
      *

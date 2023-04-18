@@ -599,7 +599,7 @@ class Zend_Validate_EmailAddressTest extends PHPUnit\Framework\TestCase
     public function testNotSetHostnameValidator()
     {
         $hostname = $this->_validator->getHostnameValidator();
-        $this->assertTrue($hostname instanceof Zend_Validate_Hostname);
+        $this->assertInstanceOf(Zend_Validate_Hostname::class, $hostname);
     }
 
     /**

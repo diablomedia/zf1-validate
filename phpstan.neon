@@ -1,5 +1,6 @@
 parameters:
     level: 4
+    treatPhpDocTypesAsCertain: false
     paths:
         - ./
     excludePaths:
@@ -8,23 +9,10 @@ parameters:
         # These files contain giant arrays that seem to make newer versions of phpstan stall/crash
         - ./src/Zend/Validate/Hostname/*
     ignoreErrors:
-        - '#Variable \$hostname might not be defined\.#'
         - '#Variable \$context in isset\(\) always exists and is not nullable\.#'
-        - '#Strict comparison using === between .+ and null will always evaluate to false\.#'
         - '#Binary operation "\*" between string and .+ results in an error\.#'
-        - '#Binary operation "\*" between int and string results in an error\.#'
         - '#Binary operation "\*" between 3 and string results in an error\.#'
-        - '#Cannot access offset int<min, 3> on int\.#'
-        # Defensive since phpdoc doc blocks alone aren't enough to protect type
-        - '#Result of && is always false\.#'
-        - '#Result of \|\| is always true\.#'
         # This is intentional for short circuiting/execution flow management
         -
             message: '#Do-while loop condition is always false\.#'
             path: ./src/Zend/Validate/Hostname.php
-        # I think this is a mistake on PHPStan's part, as it's a loop the decrements, so seems like it'll get below 0
-        # at some point.
-        -
-            message: '#Comparison operation ">=" between int<8, 17> and 0 is always true\.#'
-            path: ./src/Zend/Validate/Ccnum.php
-

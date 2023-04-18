@@ -31,6 +31,8 @@
  */
 class Zend_Validate_HostnameTest extends PHPUnit\Framework\TestCase
 {
+    protected $_origEncoding;
+
     /**
      * Default instance created for all test methods
      *

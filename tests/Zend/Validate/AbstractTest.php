@@ -31,6 +31,9 @@
  */
 class Zend_Validate_AbstractTest extends PHPUnit\Framework\TestCase
 {
+    protected $validator;
+    protected $_errorOccurred;
+
     public function clearRegistry()
     {
         if (Zend_Registry::isRegistered('Zend_Translate')) {

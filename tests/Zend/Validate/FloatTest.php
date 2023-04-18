@@ -38,6 +38,8 @@ class Zend_Validate_FloatTest extends PHPUnit\Framework\TestCase
      */
     protected $_validator;
 
+    protected $_locale;
+
     /**
      * Creates a new Zend_Validate_Float object for each test method
      *
