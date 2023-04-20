@@ -170,7 +170,8 @@ class Zend_Validate_MessageTest extends PHPUnit\Framework\TestCase
             $this->fail('Expected to catch Zend_Validate_Exception');
         } catch (Zend_Exception $e) {
             $this->assertInstanceOf(
-                Zend_Validate_Exception::class, $e,
+                Zend_Validate_Exception::class,
+                $e,
                 'Expected exception of type Zend_Validate_Exception, got ' . get_class($e)
             );
             $this->assertEquals("No message template exists for key '$keyInvalid'", $e->getMessage());
@@ -250,7 +251,8 @@ class Zend_Validate_MessageTest extends PHPUnit\Framework\TestCase
             $this->fail('Expected to catch Zend_Validate_Exception');
         } catch (Zend_Exception $e) {
             $this->assertInstanceOf(
-                Zend_Validate_Exception::class, $e,
+                Zend_Validate_Exception::class,
+                $e,
                 'Expected exception of type Zend_Validate_Exception, got ' . get_class($e)
             );
             $this->assertEquals("No property exists by the name 'unknownProperty'", $e->getMessage());
