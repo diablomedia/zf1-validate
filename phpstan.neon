@@ -16,3 +16,20 @@ parameters:
         -
             message: '#Do-while loop condition is always false\.#'
             path: ./src/Zend/Validate/Hostname.php
+        -
+            message: '#Binary operation "\*" between int<1, max> and string results in an error\.#'
+            path: ./src/Zend/Validate/Ccnum.php
+            count: 1
+        -
+            message: '#Binary operation "\*" between int<1, max> and string results in an error\.#'
+            path: ./src/Zend/Validate/CreditCard.php
+            count: 1
+        # This does seem like a bug in ZF1, as the loop with $j will never run
+        -
+            message: '#Comparison operation "<" between int<4, max> and 4 is always false\.#'
+            path: ./src/Zend/Validate/EmailAddress.php
+            count: 1
+        -
+            message: '#Cannot access offset \*NEVER\* on int\.#'
+            path: ./src/Zend/Validate/EmailAddress.php
+            count: 2
