@@ -1,55 +1,55 @@
 name: Build
 on:
-    push:
-        branches:
-            - master
-    pull_request:
-        branches:
-            - master
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 jobs:
-    build:
-        name: PHP ${{ matrix.php-versions }} ${{ matrix.composer-args }}
-        strategy:
-            fail-fast: false
-            matrix:
-                operating-system: [ubuntu-latest]
-                php-versions: ['7.4', '8.0', '8.1', '8.2']
-                composer-args: ['', '--prefer-lowest']
-        runs-on: ${{ matrix.operating-system }}
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
-            - name: Setup PHP
-              uses: shivammathur/setup-php@2.25.1
-              with:
-                  php-version: ${{ matrix.php-versions }}
-                  extensions: mbstring
-                  coverage: pcov
-                  tools: cs2pr
-            - name: Setup problem matchers for PHPUnit
-              run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
-            - name: Get composer cache directory
-              id: composer-cache
-              run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
-            - name: Cache dependencies
-              uses: actions/cache@v3
-              with:
-                  path: ${{ steps.composer-cache.outputs.dir }}
-                  key: php${{ matrix.php-versions }}-composer-${{ matrix.composer-args }}-${{ hashFiles('**/composer.json') }}
-                  restore-keys: php${{ matrix.php-versions }}-composer-${{ matrix.composer-args }}-
-            - name: Install Dependencies
-              run: |
-                  composer update --no-progress --no-suggest --prefer-stable --optimize-autoloader ${{ matrix.composer-args }}
-            - name: PHPStan
-              run: composer phpstan
-            - name: Code Style Check
-              env:
-                  PHP_CS_FIXER_IGNORE_ENV: true
-              run: composer style-check -- --format=checkstyle | cs2pr
-            - name: Test
-              run: composer test-with-coverage
-            - name: Upload Coverage
-              uses: codecov/codecov-action@v3
-              with:
-                files: ./clover.xml
-                verbose: true
+  build:
+    name: PHP ${{ matrix.php-versions }} ${{ matrix.composer-args }}
+    strategy:
+      fail-fast: false
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-versions: ["8.0", "8.1", "8.2", "8.3"]
+        composer-args: ["", "--prefer-lowest"]
+    runs-on: ${{ matrix.operating-system }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup PHP
+        uses: shivammathur/setup-php@2.30.2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring
+          coverage: pcov
+          tools: cs2pr
+      - name: Setup problem matchers for PHPUnit
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: php${{ matrix.php-versions }}-composer-${{ matrix.composer-args }}-${{ hashFiles('**/composer.json') }}
+          restore-keys: php${{ matrix.php-versions }}-composer-${{ matrix.composer-args }}-
+      - name: Install Dependencies
+        run: |
+          composer update --no-progress --no-suggest --prefer-stable --optimize-autoloader ${{ matrix.composer-args }}
+      - name: PHPStan
+        run: composer phpstan
+      - name: Code Style Check
+        env:
+          PHP_CS_FIXER_IGNORE_ENV: true
+        run: composer style-check -- --format=checkstyle | cs2pr
+      - name: Test
+        run: composer test-with-coverage
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./clover.xml
+          verbose: true

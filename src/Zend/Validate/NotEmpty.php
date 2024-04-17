@@ -187,7 +187,7 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
         // OBJECT (object)
         if ($type >= self::OBJECT) {
             $type -= self::OBJECT;
-        // fall trough, objects are always not empty
+            // fall trough, objects are always not empty
         } elseif ($object === false) {
             // object not allowed but object given -> return false
             if (is_object($value)) {
