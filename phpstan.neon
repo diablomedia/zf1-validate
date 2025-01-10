@@ -10,20 +10,23 @@ parameters:
         - ./src/Zend/Validate/Hostname/*
     ignoreErrors:
         - '#Variable \$context in isset\(\) always exists and is not nullable\.#'
-        - '#Binary operation "\*" between string and .+ results in an error\.#'
-        - '#Binary operation "\*" between 3 and string results in an error\.#'
+        - '#Binary operation "\*" between non-empty-string and .+ results in an error\.#'
+        - '#Binary operation "\*" between 3 and non-empty-string results in an error\.#'
         # This is intentional for short circuiting/execution flow management
         -
             message: '#Do-while loop condition is always false\.#'
             path: ./src/Zend/Validate/Hostname.php
         -
-            message: '#Binary operation "\*" between int<1, max> and string results in an error\.#'
+            message: '#Binary operation "\*" between int<1, max> and non-empty-string results in an error\.#'
             path: ./src/Zend/Validate/Ccnum.php
             count: 1
         -
-            message: '#Binary operation "\*" between int<1, max> and string results in an error\.#'
+            message: '#Binary operation "\*" between int<1, max> and non-empty-string results in an error\.#'
             path: ./src/Zend/Validate/CreditCard.php
             count: 1
+        -
+            message: '#Call to function method_exists\(\) with object and ''__toString'' will always evaluate to true\.#'
+            path: ./src/Zend/Validate/NotEmpty.php
         # This does seem like a bug in ZF1, as the loop with $j will never run
         -
             message: '#Comparison operation "<" between int<4, max> and 4 is always false\.#'
