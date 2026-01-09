@@ -16,6 +16,7 @@ return $config->setRiskyAllowed(true)
         'array_syntax'              => array('syntax' => 'long'),
         'concat_space'              => array('spacing' => 'one'),
         'psr_autoloading'           => array('dir' => 'src'),
+        'short_scalar_cast'         => true,
     ))
     ->setUsingCache(true)
     ->setFinder($finder);

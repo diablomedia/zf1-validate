@@ -137,7 +137,7 @@ class Zend_Validate_InArray extends Zend_Validate_Abstract
      */
     public function setStrict($strict)
     {
-        $this->_strict = (boolean) $strict;
+        $this->_strict = (bool) $strict;
         return $this;
     }
 
@@ -159,7 +159,7 @@ class Zend_Validate_InArray extends Zend_Validate_Abstract
      */
     public function setRecursive($recursive)
     {
-        $this->_recursive = (boolean) $recursive;
+        $this->_recursive = (bool) $recursive;
         return $this;
     }
 
