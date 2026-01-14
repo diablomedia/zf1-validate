@@ -9,14 +9,15 @@ $finder = PhpCsFixer\Finder::create()
 $config = new PhpCsFixer\Config();
 return $config->setRiskyAllowed(true)
     ->setRules(array(
-        '@PSR2'                     => true,
-        '@PHPUnit60Migration:risky' => true,
-        'binary_operator_spaces'    => array('operators' => array('=' => 'align', '=>' => 'align')),
-        'single_quote'              => true,
-        'array_syntax'              => array('syntax' => 'long'),
-        'concat_space'              => array('spacing' => 'one'),
-        'psr_autoloading'           => array('dir' => 'src'),
-        'short_scalar_cast'         => true,
+        '@PSR2'                          => true,
+        '@PHPUnit60Migration:risky'      => true,
+        'binary_operator_spaces'         => array('operators' => array('=' => 'align', '=>' => 'align')),
+        'single_quote'                   => true,
+        'array_syntax'                   => array('syntax' => 'long'),
+        'concat_space'                   => array('spacing' => 'one'),
+        'psr_autoloading'                => array('dir' => 'src'),
+        'switch_case_semicolon_to_colon' => true,
+        'short_scalar_cast'              => true,
     ))
     ->setUsingCache(true)
     ->setFinder($finder);
