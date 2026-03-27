@@ -49,7 +49,7 @@ jobs:
       - name: Test
         run: composer test-with-coverage
       - name: Upload Coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           files: ./clover.xml
           verbose: true
