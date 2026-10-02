@@ -6,4 +6,7 @@
 [![Total Downloads](https://poser.pugx.org/diablomedia/zendframework1-validate/downloads)](https://packagist.org/packages/diablomedia/zendframework1-validate)
 [![License](https://poser.pugx.org/diablomedia/zendframework1-validate/license)](https://packagist.org/packages/diablomedia/zendframework1-validate)
 
+> [!WARNING]  
+> We've archived this repo as we're no longer using or maintaining Zend Framework 1
+
 This is just the Zend_Validate component extracted from our fork of the Zend Framework 1 repo (https://github.com/diablomedia/zf1).
